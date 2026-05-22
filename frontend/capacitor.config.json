@@ -1,0 +1,5 @@
+{
+  "appId": "com.secureauth.app",
+  "appName": "SecureAuth",
+  "webDir": "dist"
+}

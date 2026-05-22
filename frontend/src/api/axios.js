@@ -1,10 +1,11 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: '', // Empty because we are proxying /api through Vite config
+  baseURL: import.meta.env.VITE_API_URL || '', // Dynamic URL for mobile app vs web same-origin
   withCredentials: true, // Crucial for HTTP-only cookie session handling
   headers: {
     'Content-Type': 'application/json',
+    'Bypass-Tunnel-Reminder': 'true',
   },
 });
 
