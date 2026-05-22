@@ -30,13 +30,16 @@ const validatePasswordStrength = (password) => {
 };
 
 // Helper for cookie options
-const getCookieOptions = (maxAge) => ({
-  httpOnly: true,
-  secure: process.env.NODE_ENV === 'production',
-  sameSite: 'lax',
-  path: '/',
-  maxAge: maxAge,
-});
+const getCookieOptions = (maxAge) => {
+  const isProd = process.env.NODE_ENV === 'production';
+  return {
+    httpOnly: true,
+    secure: isProd,
+    sameSite: isProd ? 'none' : 'lax',
+    path: '/',
+    maxAge: maxAge,
+  };
+};
 
 export const register = async (req, res) => {
   const { name, email, password } = req.body;
@@ -152,11 +155,12 @@ export const login = async (req, res) => {
 };
 
 export const logout = (req, res) => {
+  const isProd = process.env.NODE_ENV === 'production';
   // Clear the token cookie
   res.clearCookie('token', {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'lax',
+    secure: isProd,
+    sameSite: isProd ? 'none' : 'lax',
     path: '/',
   });
   
