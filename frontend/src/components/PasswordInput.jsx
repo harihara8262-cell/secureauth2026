@@ -67,13 +67,13 @@ export default function PasswordInput({
           value={value}
           onChange={onChange}
           required={required}
-          className="w-full px-4 py-3 rounded-xl glass-input text-white text-sm focus:outline-none focus:ring-2 pr-12"
+          className="w-full px-4 py-3 rounded-xl glass-input text-slate-900 text-sm focus:outline-none focus:ring-2 pr-12"
           placeholder={placeholder}
         />
         <button
           type="button"
           onClick={toggleVisibility}
-          className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-slate-400 hover:text-white transition-colors duration-150 focus:outline-none"
+          className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-slate-400 hover:text-slate-700 transition-colors duration-150 focus:outline-none"
         >
           {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
         </button>
@@ -83,14 +83,14 @@ export default function PasswordInput({
         <div className="space-y-3 pt-1 animate-fadeIn">
           {/* Progress Bar */}
           <div className="space-y-1">
-            <div className="flex justify-between text-xs font-semibold text-slate-400">
+            <div className="flex justify-between text-xs font-semibold text-slate-500">
               <span>Password Strength</span>
               <span className={
-                strength.label === 'Strong' ? 'text-emerald-400' :
-                strength.label === 'Medium' ? 'text-amber-400' : 'text-rose-400'
+                strength.label === 'Strong' ? 'text-emerald-600' :
+                strength.label === 'Medium' ? 'text-amber-600' : 'text-rose-600'
               }>{strength.label}</span>
             </div>
-            <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+            <div className="h-1.5 w-full bg-slate-200 rounded-full overflow-hidden">
               <div 
                 className={`h-full ${strength.color} transition-all duration-300`} 
                 style={{ width: `${(strength.score / 5) * 100}%` }}
@@ -99,46 +99,46 @@ export default function PasswordInput({
           </div>
 
           {/* Detailed Criteria Checklist */}
-          <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-[11px] font-medium text-slate-400 bg-slate-950/40 p-2.5 rounded-lg border border-slate-800/40">
+          <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-[11px] font-medium text-slate-500 bg-slate-50 p-2.5 rounded-lg border border-slate-200">
             <div className="flex items-center gap-1.5">
               {checks.length ? (
-                <Check className="w-3.5 h-3.5 text-emerald-400" />
+                <Check className="w-3.5 h-3.5 text-emerald-600" />
               ) : (
-                <span className="w-1.5 h-1.5 rounded-full bg-slate-600 ml-1 mr-1" />
+                <span className="w-1.5 h-1.5 rounded-full bg-slate-400 ml-1 mr-1" />
               )}
-              <span className={checks.length ? 'text-slate-300 font-semibold' : ''}>8+ Characters</span>
+              <span className={checks.length ? 'text-slate-800 font-semibold' : ''}>8+ Characters</span>
             </div>
             <div className="flex items-center gap-1.5">
               {checks.uppercase ? (
-                <Check className="w-3.5 h-3.5 text-emerald-400" />
+                <Check className="w-3.5 h-3.5 text-emerald-600" />
               ) : (
-                <span className="w-1.5 h-1.5 rounded-full bg-slate-600 ml-1 mr-1" />
+                <span className="w-1.5 h-1.5 rounded-full bg-slate-400 ml-1 mr-1" />
               )}
-              <span className={checks.uppercase ? 'text-slate-300 font-semibold' : ''}>1+ Uppercase (A-Z)</span>
+              <span className={checks.uppercase ? 'text-slate-800 font-semibold' : ''}>1+ Uppercase (A-Z)</span>
             </div>
             <div className="flex items-center gap-1.5">
               {checks.lowercase ? (
-                <Check className="w-3.5 h-3.5 text-emerald-400" />
+                <Check className="w-3.5 h-3.5 text-emerald-600" />
               ) : (
-                <span className="w-1.5 h-1.5 rounded-full bg-slate-600 ml-1 mr-1" />
+                <span className="w-1.5 h-1.5 rounded-full bg-slate-400 ml-1 mr-1" />
               )}
-              <span className={checks.lowercase ? 'text-slate-300 font-semibold' : ''}>1+ Lowercase (a-z)</span>
+              <span className={checks.lowercase ? 'text-slate-800 font-semibold' : ''}>1+ Lowercase (a-z)</span>
             </div>
             <div className="flex items-center gap-1.5">
               {checks.number ? (
-                <Check className="w-3.5 h-3.5 text-emerald-400" />
+                <Check className="w-3.5 h-3.5 text-emerald-600" />
               ) : (
-                <span className="w-1.5 h-1.5 rounded-full bg-slate-600 ml-1 mr-1" />
+                <span className="w-1.5 h-1.5 rounded-full bg-slate-400 ml-1 mr-1" />
               )}
-              <span className={checks.number ? 'text-slate-300 font-semibold' : ''}>1+ Number (0-9)</span>
+              <span className={checks.number ? 'text-slate-800 font-semibold' : ''}>1+ Number (0-9)</span>
             </div>
             <div className="flex items-center gap-1.5 col-span-2">
               {checks.special ? (
-                <Check className="w-3.5 h-3.5 text-emerald-400" />
+                <Check className="w-3.5 h-3.5 text-emerald-600" />
               ) : (
-                <span className="w-1.5 h-1.5 rounded-full bg-slate-600 ml-1 mr-1" />
+                <span className="w-1.5 h-1.5 rounded-full bg-slate-400 ml-1 mr-1" />
               )}
-              <span className={checks.special ? 'text-slate-300 font-semibold' : ''}>1+ Special Character (!@#$ etc)</span>
+              <span className={checks.special ? 'text-slate-800 font-semibold' : ''}>1+ Special Character (!@#$ etc)</span>
             </div>
           </div>
         </div>

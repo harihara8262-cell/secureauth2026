@@ -62,19 +62,19 @@ export default function Dashboard() {
           <div className="w-9 h-9 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center shadow-md shadow-indigo-500/10">
             <Shield className="w-5 h-5 text-white" />
           </div>
-          <span className="font-bold text-lg bg-gradient-to-r from-indigo-200 via-white to-purple-200 bg-clip-text text-transparent">
+          <span className="font-bold text-lg bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
             SecureAuth
           </span>
         </div>
 
         <div className="flex items-center gap-4">
-          <span className="text-xs font-semibold text-slate-400 bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-full flex items-center gap-1.5">
-            <Clock className="w-3.5 h-3.5 text-indigo-400" />
-            Session: <span className="text-indigo-200 font-mono">{formatTime(timeLeft)}</span>
+          <span className="text-xs font-semibold text-slate-600 bg-slate-100 border border-slate-200 px-3 py-1.5 rounded-full flex items-center gap-1.5">
+            <Clock className="w-3.5 h-3.5 text-indigo-600" />
+            Session: <span className="text-indigo-600 font-mono font-semibold">{formatTime(timeLeft)}</span>
           </span>
           <button
             onClick={handleLogout}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 transition-all duration-200"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:text-slate-900 bg-white hover:bg-slate-50 border border-slate-200 hover:border-slate-300 transition-all duration-200 shadow-sm"
           >
             <LogOut className="w-4 h-4" /> Log Out
           </button>
@@ -88,11 +88,11 @@ export default function Dashboard() {
           <div className="absolute top-0 right-0 w-80 h-80 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
           
           <div>
-            <span className="text-indigo-400 text-xs font-bold uppercase tracking-wider">Workspace Dashboard</span>
-            <h1 className="text-3xl font-extrabold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent mt-1">
+            <span className="text-indigo-600 text-xs font-bold uppercase tracking-wider">Workspace Dashboard</span>
+            <h1 className="text-3xl font-extrabold text-slate-950 mt-1">
               Welcome back, {user?.name}!
             </h1>
-            <p className="text-slate-400 text-sm mt-1">
+            <p className="text-slate-600 text-sm mt-1">
               You are currently logged into the protected client dashboard.
             </p>
           </div>
@@ -112,42 +112,42 @@ export default function Dashboard() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* User Profile Card */}
           <div className="glass-panel p-6 rounded-2xl md:col-span-2 space-y-5">
-            <div className="flex items-center gap-3 pb-3 border-b border-slate-800">
-              <div className="p-2 bg-indigo-500/10 rounded-lg text-indigo-400">
+            <div className="flex items-center gap-3 pb-3 border-b border-slate-100">
+              <div className="p-2 bg-indigo-50 rounded-lg text-indigo-600">
                 <User className="w-5 h-5" />
               </div>
-              <h2 className="font-bold text-lg text-white">Profile Information</h2>
+              <h2 className="font-bold text-lg text-slate-900">Profile Information</h2>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="bg-slate-950/40 p-4 rounded-xl border border-slate-900">
+              <div className="bg-slate-50 p-4 rounded-xl border border-slate-200/60">
                 <span className="text-[10px] uppercase font-bold tracking-wider text-slate-500 block">User Name</span>
-                <span className="text-slate-200 font-semibold text-sm mt-1 block">{user?.name}</span>
+                <span className="text-slate-800 font-semibold text-sm mt-1 block">{user?.name}</span>
               </div>
-              <div className="bg-slate-950/40 p-4 rounded-xl border border-slate-900">
+              <div className="bg-slate-50 p-4 rounded-xl border border-slate-200/60">
                 <span className="text-[10px] uppercase font-bold tracking-wider text-slate-500 block">Email Address</span>
-                <span className="text-slate-200 font-semibold text-sm mt-1 block flex items-center gap-1.5 truncate">
-                  <Mail className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
+                <span className="text-slate-800 font-semibold text-sm mt-1 block flex items-center gap-1.5 truncate">
+                  <Mail className="w-3.5 h-3.5 text-slate-500 flex-shrink-0" />
                   {user?.email}
                 </span>
               </div>
-              <div className="bg-slate-950/40 p-4 rounded-xl border border-slate-900">
+              <div className="bg-slate-50 p-4 rounded-xl border border-slate-200/60">
                 <span className="text-[10px] uppercase font-bold tracking-wider text-slate-500 block">Access Level</span>
                 <span className="mt-1 block">
                   <span className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-xs font-semibold ${
                     user?.role === 'admin' 
-                      ? 'bg-purple-500/10 border border-purple-500/20 text-purple-400' 
-                      : 'bg-indigo-500/10 border border-indigo-500/20 text-indigo-400'
+                      ? 'bg-purple-50 border border-purple-200 text-purple-700' 
+                      : 'bg-indigo-50 border border-indigo-200 text-indigo-700'
                   }`}>
                     <Shield className="w-3 h-3" />
                     {user?.role === 'admin' ? 'Administrator' : 'Standard User'}
                   </span>
                 </span>
               </div>
-              <div className="bg-slate-950/40 p-4 rounded-xl border border-slate-900">
+              <div className="bg-slate-50 p-4 rounded-xl border border-slate-200/60">
                 <span className="text-[10px] uppercase font-bold tracking-wider text-slate-500 block">Registered On</span>
-                <span className="text-slate-200 font-semibold text-sm mt-1 block flex items-center gap-1.5">
-                  <Calendar className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
+                <span className="text-slate-800 font-semibold text-sm mt-1 block flex items-center gap-1.5">
+                  <Calendar className="w-3.5 h-3.5 text-slate-500 flex-shrink-0" />
                   {formatDate(user?.createdAt || user?.created_at)}
                 </span>
               </div>
@@ -157,41 +157,41 @@ export default function Dashboard() {
           {/* Security Stats Side Panel */}
           <div className="glass-panel p-6 rounded-2xl flex flex-col justify-between">
             <div className="space-y-4">
-              <div className="flex items-center gap-3 pb-3 border-b border-slate-800">
-                <div className="p-2 bg-emerald-500/10 rounded-lg text-emerald-400">
+              <div className="flex items-center gap-3 pb-3 border-b border-slate-100">
+                <div className="p-2 bg-emerald-50 rounded-lg text-emerald-600">
                   <Shield className="w-5 h-5" />
                 </div>
-                <h2 className="font-bold text-lg text-white">Security Status</h2>
+                <h2 className="font-bold text-lg text-slate-900">Security Status</h2>
               </div>
 
               <div className="space-y-3.5">
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-emerald-400 mt-2 flex-shrink-0" />
+                  <div className="w-2 h-2 rounded-full bg-emerald-500 mt-2 flex-shrink-0" />
                   <div>
-                    <span className="text-xs font-bold text-slate-300 block">Password Hashing</span>
+                    <span className="text-xs font-bold text-slate-800 block">Password Hashing</span>
                     <span className="text-[11px] text-slate-500">Secured via bcrypt adaptive salt rounds (12).</span>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-emerald-400 mt-2 flex-shrink-0" />
+                  <div className="w-2 h-2 rounded-full bg-emerald-500 mt-2 flex-shrink-0" />
                   <div>
-                    <span className="text-xs font-bold text-slate-300 block">JWT Authentication</span>
+                    <span className="text-xs font-bold text-slate-800 block">JWT Authentication</span>
                     <span className="text-[11px] text-slate-500">Cryptographically signed JSON Web Token.</span>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-emerald-400 mt-2 flex-shrink-0" />
+                  <div className="w-2 h-2 rounded-full bg-emerald-500 mt-2 flex-shrink-0" />
                   <div>
-                    <span className="text-xs font-bold text-slate-300 block">HTTP-Only Protection</span>
+                    <span className="text-xs font-bold text-slate-800 block">HTTP-Only Protection</span>
                     <span className="text-[11px] text-slate-500">Cookie cookie is sandboxed against XSS scripting.</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="mt-6 bg-slate-950/40 border border-slate-900 rounded-xl p-3.5 flex items-start gap-2.5">
-              <AlertTriangle className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" />
-              <p className="text-[10px] text-slate-400 leading-normal">
+            <div className="mt-6 bg-indigo-50/50 border border-indigo-100 rounded-xl p-3.5 flex items-start gap-2.5">
+              <AlertTriangle className="w-5 h-5 text-indigo-600 flex-shrink-0 mt-0.5" />
+              <p className="text-[10px] text-slate-600 leading-normal">
                 If you clear your browser cookies, your session will immediately terminate and you will need to re-authenticate.
               </p>
             </div>

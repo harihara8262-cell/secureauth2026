@@ -6,19 +6,19 @@ export default function Alert({ type = 'info', message, onClose }) {
 
   const styles = {
     success: {
-      bg: 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400',
+      bg: 'bg-emerald-50 border-emerald-200 text-emerald-800',
       icon: <CheckCircle className="w-5 h-5 flex-shrink-0" />,
     },
     error: {
-      bg: 'bg-rose-500/10 border-rose-500/20 text-rose-400',
+      bg: 'bg-rose-50 border-rose-200 text-rose-800',
       icon: <AlertCircle className="w-5 h-5 flex-shrink-0" />,
     },
     warning: {
-      bg: 'bg-amber-500/10 border-amber-500/20 text-amber-400',
+      bg: 'bg-amber-50 border-amber-200 text-amber-800',
       icon: <AlertCircle className="w-5 h-5 flex-shrink-0" />,
     },
     info: {
-      bg: 'bg-blue-500/10 border-blue-500/20 text-blue-400',
+      bg: 'bg-blue-50 border-blue-200 text-blue-800',
       icon: <Info className="w-5 h-5 flex-shrink-0" />,
     },
   };
@@ -32,7 +32,7 @@ export default function Alert({ type = 'info', message, onClose }) {
       {onClose && (
         <button
           onClick={onClose}
-          className="text-gray-400 hover:text-white transition-colors duration-150 focus:outline-none"
+          className="text-slate-400 hover:text-slate-600 transition-colors duration-150 focus:outline-none"
           aria-label="Dismiss alert"
         >
           <X className="w-4 h-4" />

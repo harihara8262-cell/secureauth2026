@@ -92,10 +92,10 @@ export default function Register() {
           <div className="w-12 h-12 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/20 mb-3 animate-pulse">
             <UserPlus className="w-6 h-6 text-white" />
           </div>
-          <h2 className="text-2xl font-bold bg-gradient-to-r from-indigo-200 via-white to-purple-200 bg-clip-text text-transparent flex items-center gap-1.5">
-            Create Account <Sparkles className="w-4 h-4 text-indigo-400" />
+          <h2 className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent flex items-center gap-1.5">
+            Create Account <Sparkles className="w-4 h-4 text-indigo-500" />
           </h2>
-          <p className="text-slate-400 text-xs mt-1">Get started with a secure account</p>
+          <p className="text-slate-500 text-xs mt-1">Get started with a secure account</p>
         </div>
 
         {alertInfo.message && (
@@ -110,7 +110,7 @@ export default function Register() {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="name" className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+            <label htmlFor="name" className="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1.5">
               Full Name
             </label>
             <input
@@ -120,13 +120,13 @@ export default function Register() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 rounded-xl glass-input text-white text-sm focus:outline-none focus:ring-2"
+              className="w-full px-4 py-3 rounded-xl glass-input text-slate-900 text-sm focus:outline-none focus:ring-2"
               placeholder="John Doe"
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+            <label htmlFor="email" className="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1.5">
               Email Address
             </label>
             <input
@@ -137,18 +137,18 @@ export default function Register() {
               onChange={handleChange}
               onBlur={handleEmailBlur}
               required
-              className={`w-full px-4 py-3 rounded-xl glass-input text-white text-sm focus:outline-none focus:ring-2 ${
+              className={`w-full px-4 py-3 rounded-xl glass-input text-slate-900 text-sm focus:outline-none focus:ring-2 ${
                 emailError ? 'border-rose-500/50 focus:ring-rose-500/30' : ''
               }`}
               placeholder="you@example.com"
             />
             {emailError && (
-              <p className="text-rose-400 text-[11px] mt-1 font-medium animate-fadeIn">{emailError}</p>
+              <p className="text-rose-600 text-[11px] mt-1 font-medium animate-fadeIn">{emailError}</p>
             )}
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+            <label htmlFor="password" className="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1.5">
               Password
             </label>
             <PasswordInput
@@ -163,7 +163,7 @@ export default function Register() {
           </div>
 
           <div>
-            <label htmlFor="confirmPassword" className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+            <label htmlFor="confirmPassword" className="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1.5">
               Confirm Password
             </label>
             <PasswordInput
@@ -180,7 +180,7 @@ export default function Register() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 px-4 mt-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white text-sm font-semibold rounded-xl transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/20 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full py-3 px-4 mt-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white text-sm font-semibold rounded-xl transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/10 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? (
               <>
@@ -192,9 +192,9 @@ export default function Register() {
           </button>
         </form>
 
-        <div className="mt-6 text-center text-xs text-slate-400">
+        <div className="mt-6 text-center text-xs text-slate-500">
           Already have an account?{' '}
-          <Link to="/login" className="text-indigo-400 hover:text-indigo-300 font-semibold transition-colors duration-150">
+          <Link to="/login" className="text-indigo-600 hover:text-indigo-500 font-semibold transition-colors duration-150">
             Log In
           </Link>
         </div>
