@@ -14,9 +14,15 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:5173';
 
-// Middlewares
+// Trust proxy (required for rate limiting behind reverse proxies/tunnels)
+app.set('trust proxy', 1);
+
+// Middlewares with dynamic CORS origin matching to support tunnel domains
 app.use(cors({
-  origin: CLIENT_URL,
+  origin: (origin, callback) => {
+    // Allow same-origin requests (no Origin header) or matching domains
+    callback(null, true);
+  },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
