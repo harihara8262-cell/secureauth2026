@@ -82,20 +82,21 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
-      <div className="w-full max-w-md glass-panel p-8 rounded-2xl relative overflow-hidden transition-all duration-300 hover:shadow-[0_0_50px_rgba(99,102,241,0.15)]">
+    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-slate-100 to-indigo-50">
+      <div className="w-full max-w-md bg-white/90 border border-slate-200 shadow-2xl p-10 rounded-3xl relative overflow-hidden transition-all duration-300 hover:shadow-[0_10px_60px_rgba(99,102,241,0.13)]">
         {/* Decorative corner glows */}
-        <div className="absolute -top-10 -right-10 w-24 h-24 bg-indigo-500/10 rounded-full blur-xl pointer-events-none" />
-        <div className="absolute -bottom-10 -left-10 w-24 h-24 bg-purple-500/10 rounded-full blur-xl pointer-events-none" />
+        <div className="absolute -top-12 -right-12 w-32 h-32 bg-indigo-400/10 rounded-full blur-2xl pointer-events-none" />
+        <div className="absolute -bottom-12 -left-12 w-32 h-32 bg-purple-400/10 rounded-full blur-2xl pointer-events-none" />
 
-        <div className="flex flex-col items-center mb-6">
-          <div className="w-12 h-12 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/20 mb-3 animate-pulse">
-            <UserPlus className="w-6 h-6 text-white" />
+        <div className="flex flex-col items-center mb-7">
+          {/* Avatar/Logo placeholder */}
+          <div className="w-16 h-16 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-full flex items-center justify-center shadow-lg shadow-indigo-500/20 mb-3 border-4 border-white animate-pulse">
+            <UserPlus className="w-7 h-7 text-white" />
           </div>
-          <h2 className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent flex items-center gap-1.5">
-            Create Account <Sparkles className="w-4 h-4 text-indigo-500" />
+          <h2 className="text-3xl font-extrabold bg-gradient-to-r from-indigo-700 to-purple-600 bg-clip-text text-transparent tracking-tight flex items-center gap-1.5">
+            Create Account <Sparkles className="w-5 h-5 text-indigo-400" />
           </h2>
-          <p className="text-slate-500 text-xs mt-1">Get started with a secure account</p>
+          <p className="text-slate-500 text-sm mt-1 font-medium">Get started with a secure account</p>
         </div>
 
         {alertInfo.message && (
@@ -108,9 +109,9 @@ export default function Register() {
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label htmlFor="name" className="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1.5">
+            <label htmlFor="name" className="block text-xs font-bold text-slate-700 uppercase tracking-widest mb-2">
               Full Name
             </label>
             <input
@@ -120,13 +121,13 @@ export default function Register() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 rounded-xl glass-input text-slate-900 text-sm focus:outline-none focus:ring-2"
+              className="w-full px-4 py-3 rounded-xl glass-input text-slate-900 text-base focus:outline-none focus:ring-2 focus:ring-indigo-200 border border-slate-200"
               placeholder="John Doe"
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1.5">
+            <label htmlFor="email" className="block text-xs font-bold text-slate-700 uppercase tracking-widest mb-2">
               Email Address
             </label>
             <input
@@ -137,7 +138,7 @@ export default function Register() {
               onChange={handleChange}
               onBlur={handleEmailBlur}
               required
-              className={`w-full px-4 py-3 rounded-xl glass-input text-slate-900 text-sm focus:outline-none focus:ring-2 ${
+              className={`w-full px-4 py-3 rounded-xl glass-input text-slate-900 text-base focus:outline-none focus:ring-2 focus:ring-indigo-200 border border-slate-200 ${
                 emailError ? 'border-rose-500/50 focus:ring-rose-500/30' : ''
               }`}
               placeholder="you@example.com"
@@ -148,7 +149,7 @@ export default function Register() {
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1.5">
+            <label htmlFor="password" className="block text-xs font-bold text-slate-700 uppercase tracking-widest mb-2">
               Password
             </label>
             <PasswordInput
@@ -163,7 +164,7 @@ export default function Register() {
           </div>
 
           <div>
-            <label htmlFor="confirmPassword" className="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1.5">
+            <label htmlFor="confirmPassword" className="block text-xs font-bold text-slate-700 uppercase tracking-widest mb-2">
               Confirm Password
             </label>
             <PasswordInput
@@ -180,7 +181,7 @@ export default function Register() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 px-4 mt-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white text-sm font-semibold rounded-xl transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/10 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full py-3 px-4 mt-2 bg-gradient-to-r from-indigo-700 to-purple-600 hover:from-indigo-600 hover:to-purple-500 text-white text-base font-bold rounded-xl transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/10 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? (
               <>
@@ -192,7 +193,7 @@ export default function Register() {
           </button>
         </form>
 
-        <div className="mt-6 text-center text-xs text-slate-500">
+        <div className="mt-7 text-center text-xs text-slate-500">
           Already have an account?{' '}
           <Link to="/login" className="text-indigo-600 hover:text-indigo-500 font-semibold transition-colors duration-150">
             Log In
