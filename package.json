@@ -9,5 +9,8 @@
   "scripts": {
     "build": "npm run build --prefix frontend",
     "start": "npm start --prefix backend"
+  },
+  "devDependencies": {
+    "vite": "^8.0.14"
   }
 }
