@@ -20,10 +20,7 @@ app.set('trust proxy', 1);
 
 // Middlewares with dynamic CORS origin matching to support tunnel domains
 app.use(cors({
-  origin: (origin, callback) => {
-    // Allow same-origin requests (no Origin header) or matching domains
-    callback(null, true);
-  },
+  origin: process.env.CLIENT_URL?.split(',').map(url => url.trim()),
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'Bypass-Tunnel-Reminder']
@@ -49,32 +46,7 @@ app.get('/health', (req, res) => {
   res.status(200).json({ status: 'healthy', timestamp: new Date() });
 });
 
-// Serve static assets in production/deployment
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const frontendDistPath = path.join(__dirname, '../../frontend/dist');
-const indexHtmlPath = path.join(frontendDistPath, 'index.html');
-
-if (fs.existsSync(frontendDistPath)) {
-  app.use(express.static(frontendDistPath));
-}
-
-// Fallback all other routes to React's index.html (Client-side routing support)
-app.get('*', (req, res, next) => {
-  if (req.path.startsWith('/api') || req.path.startsWith('/health')) {
-    return next();
-  }
-  
-  if (fs.existsSync(indexHtmlPath)) {
-    res.sendFile(indexHtmlPath);
-  } else {
-    res.status(200).json({
-      message: 'SecureAuth API Server is online and running.',
-      status: 'active',
-      frontend_assets: 'external'
-    });
-  }
-});
+// (Removed serving frontend/dist and index.html. Frontend is deployed separately.)
 
 // 404 handler
 app.use((req, res) => {
